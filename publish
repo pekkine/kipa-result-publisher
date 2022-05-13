@@ -25,7 +25,7 @@ main() {
   FILENAME=$2
   TIMESTAMP=$(date)
   
-  RESULT_URL="http://localhost:3000/kipa/kierikki/tulosta/tuloste/sarja/${CLASS}/"
+  RESULT_URL="http://${HOST}:${PORT}/kipa/${EVENT_NAME}/tulosta/tuloste/sarja/${CLASS}/"
   curl --verbose --fail --output "${RESULT_REPO_DIR}/${FILENAME}" "${RESULT_URL}"
 
   cd "${RESULT_REPO_DIR}"
