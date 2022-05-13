@@ -20,6 +20,15 @@ Create `RESULTS_REPO_DIR` and a git repo
 
 # Usage
 
-Give kipa specific class numbers as arguments, for example
+Arguments: 
 
-`./publish 23 24 25`
+1. Kipa specific class number
+2. Output filename
+
+For example: 
+
+```
+./publish 23 oranssi.html
+./publish 24 vihrea.html
+./publish 25 purppura.html
+```

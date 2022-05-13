@@ -8,9 +8,9 @@ set -o nounset
 
 main() {
 
-  if [[ $# -eq 0 ]]; then
-    echo "No class numbers provided!"
-    echo "Usage, for example: ./publish 22 23 24"
+  if [[ $# -ne 2 ]]; then
+    echo "Argument error!"
+    echo "Usage, for example: ./publish 23 vihrea.html"
     exit 1
   fi  
 
@@ -20,19 +20,17 @@ main() {
     echo "Could not find .env file!"
     exit 1
   fi
-
-
+  
+  CLASS=$1
+  FILENAME=$2
   TIMESTAMP=$(date)
   
-  for CLASS in "$@"; do
-    RESULT_FILE="${RESULT_REPO_DIR}/${CLASS}.html"
-    RESULT_URL="http://localhost:3000/kipa/kierikki/tulosta/tuloste/sarja/${CLASS}/"
-    curl --verbose --fail --output "${RESULT_FILE}" "${RESULT_URL}"
-  done
+  RESULT_URL="http://localhost:3000/kipa/kierikki/tulosta/tuloste/sarja/${CLASS}/"
+  curl --verbose --fail --output "${RESULT_REPO_DIR}/${FILENAME}" "${RESULT_URL}"
 
-  cd ${RESULT_REPO_DIR}
+  cd "${RESULT_REPO_DIR}"
  
-  git add .
+  git add "${FILENAME}"
 
   if git commit -m "${TIMESTAMP}"; then
     git push
