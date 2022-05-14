@@ -13,19 +13,13 @@ main() {
     echo "Usage, for example: ./publish 23 vihrea.html"
     exit 1
   fi  
-
-  if [[ -f ".env" ]]; then
-    source ".env"
-  else
-    echo "Could not find .env file!"
-    exit 1
-  fi
   
   CLASS=$1
   FILENAME=$2
   TIMESTAMP=$(date)
-  
-  RESULT_URL="http://${HOST}:${PORT}/kipa/${EVENT_NAME}/tulosta/tuloste/sarja/${CLASS}/"
+  RESULT_REPO_DIR="/home/pekkine/kierikki-results"
+
+  RESULT_URL="http://192.168.1.50/kipa/kierikki/tallenna/tulosta/tuloste/sarja/${CLASS}/"
   curl --verbose --fail --output "${RESULT_REPO_DIR}/${FILENAME}" "${RESULT_URL}"
 
   cd "${RESULT_REPO_DIR}"
