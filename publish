@@ -10,7 +10,7 @@ main() {
 
   if [[ $# -ne 2 ]]; then
     echo "Argument error!"
-    echo "Usage, for example: ./publish 23 vihrea.html"
+    echo "Usage, for example: ./publish 1 oranssi.html"
     exit 1
   fi  
   
@@ -19,7 +19,7 @@ main() {
   TIMESTAMP=$(date)
   RESULT_REPO_DIR="/home/pekkine/kierikki-results"
 
-  RESULT_URL="http://192.168.1.50/kipa/kierikki/tallenna/tulosta/tuloste/sarja/${CLASS}/"
+  RESULT_URL="http://192.168.1.50/kipa/kierikki/tulosta/tuloste/sarja/${CLASS}/"
   curl --verbose --fail --output "${RESULT_REPO_DIR}/${FILENAME}" "${RESULT_URL}"
 
   cd "${RESULT_REPO_DIR}"

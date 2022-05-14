@@ -28,7 +28,7 @@ Arguments:
 For example: 
 
 ```
-./publish 23 oranssi.html
-./publish 24 vihrea.html
-./publish 25 purppura.html
+./publish 1 oranssi.html
+./publish 2 vihrea.html
+./publish 3 purppura.html
 ```
