@@ -8,10 +8,10 @@ Replace values with your own.
 
 ```
 touch .env
-echo HOST="localhost" >> .env
-echo PORT="3000" >> .env
-echo EVENT_NAME="testikisa" >> .env
-echo RESULT_REPO_DIR="/Users/pekkine/testikisa-results" >> .env
+echo HOST=localhost >> .env
+echo PORT=3000 >> .env
+echo EVENT_NAME=Kaaos_testikisa >> .env
+echo RESULT_REPO_DIR="/Users/pekkinev/kaaos-results" >> .env
 ```
 
 ## Set up git repo
