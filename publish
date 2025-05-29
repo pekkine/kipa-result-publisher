@@ -28,7 +28,7 @@ main() {
   # Lisää CSS joka toisen rivin taustavärille (taulukon rivit parillisina)
   gsed -i '/<\/head>/i \
   <style> \
-    tr:nth-child(even) { background-color: #f0f0f0; } \
+    #tulostaulukko_screen tr:nth-child(even):not(:nth-child(2)):not(:nth-child(4)) { background-color: #f0f0f0; } \
     .huomautus { color: red; font-weight: bold; white-space: pre-wrap; } \
   </style>' "$FILENAME"
 
@@ -39,9 +39,9 @@ main() {
   Nämä alustavia tuloksia, joihin voi tulla paljonkin muutoksia.\
   </p>' "$FILENAME"
 
-  #if git commit -m "${TIMESTAMP}"; then
-  #  git push
-  #fi
+  if git commit -m "${TIMESTAMP}"; then
+    git push
+  fi
 }
 
 main "$@"
